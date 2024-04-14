@@ -1,0 +1,21 @@
+#include <stdio.h>
+int power(int n){
+    int p=1;
+    for(int j=0;j<2;j++)
+    p*=n;
+    return p;
+    
+}
+int main(){
+    int n,i;
+    int power_sum=0;
+    scanf("%d",&n);
+    for(i=1;i<n;i++){
+        int p=0;
+        p=power(i);
+        // printf("%d\n",p);
+        power_sum=power_sum+p;
+    }
+
+    printf("%d",power_sum);
+}

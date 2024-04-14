@@ -1,0 +1,27 @@
+#include <stdio.h>
+int count(int n){
+    int rem=0;
+    int sum=0;
+    int count=0;
+    while(n!=0){
+        rem=n%10;
+        count+=rem;
+        n=n/10;
+    }
+    return count;
+}
+int main(){
+    int n,count_sum;
+    scanf("%d",&n);
+    count_sum=count(n);
+    if(count_sum<=10){
+        count_sum;
+    }
+    else{
+        count_sum=count(count_sum);
+        if(count_sum<=10){
+            count_sum=count(count_sum);
+        }
+    }
+    printf("%d",count_sum);
+}

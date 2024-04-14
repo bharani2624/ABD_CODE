@@ -1,0 +1,26 @@
+#include <stdio.h>
+double power(double n,int p){
+    if(p==0)
+    return 1;
+    if(p>0)
+    return n*(power(n,p-1));
+    else
+    return 1.0/n*(n,-p-1);
+}
+int main(){
+    double p;
+    int n,po;
+    scanf("%d",&n);
+    scanf("%d",&po);
+    if(po<0)
+    {p=power(n,po);
+    printf("%lf",p);
+        
+    }
+    else{
+        p=power(n,po);
+        printf("%d",(int)p);
+    }
+
+        
+    }

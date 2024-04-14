@@ -1,0 +1,74 @@
+// #include <stdio.h>
+// #include <math.h>
+// int fact(int n,int num){
+//     int i,temp;
+//     int max;
+//     temp=1;
+//     for(i=1;i<=n;i++){
+//         temp*=i;
+//             }
+//             max=(float)temp/(float)(pow(num,n));
+//             return max;
+// }
+
+// int main(){
+    
+//     int m,i,n;
+//         int sum_temp;
+//     sum_temp=0;
+//     scanf("%d",&n);
+    
+// for(i=1;i<=n;i++){
+//     int temp=i;
+//     int count=0;
+//     if(temp%2==0){
+//         printf(" %d",temp);
+//         count+=1;
+//         if(temp==1)
+//         sum_temp+=fact(1,10);
+//         if(count%2!=0){
+//             sum_temp+=fact(temp,n);
+//             }
+//             else{
+//                 sum_temp-=fact(temp,n);
+//             }
+//         }
+        
+//     }
+// printf("%d",sum_temp);
+// }
+#include <stdio.h>
+#include <math.h>
+
+// Function to compute factorial
+double factorial(int n) {
+    double fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    int n;
+    double sum = 0.0;
+
+    // Prompt the user to enter a value for n
+    printf("Enter a value for n: ");
+    scanf("%d", &n);
+
+    // Calculate the series sum
+    for (int i = 1; i <= n; i++) {
+        if (i % 2 == 0) {
+            double term = (i % 4 == 0) ? -1 : 1;
+            term *= factorial(2 * i) / pow(n, 2 * i);
+            sum += term;
+        }
+    }
+
+    // Print the sum with 6 decimal places
+    printf("Sum of the series up to the %dth term: %.6lf\n", n, sum);
+
+    return 0;
+}
+

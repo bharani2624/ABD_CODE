@@ -1,0 +1,37 @@
+#include <stdio.h>
+int palindrome(int n){
+    int rem;
+    int temp;
+    int rev=0;
+    temp=n;
+    int i;
+    for(i=0;n!=0;i++){
+        rem=n%10;
+        rev=rev*10+rem;
+        n=n/10;
+    }
+    if(temp==rev){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+int main(){
+    int n,palindrome_check,i;
+    scanf("%d",&n);
+    i=5;
+    palindrome_check=palindrome(n);
+    while(i!=0){
+        if(palindrome(n)==1){
+            palindrome_check=palindrome(n);
+            printf("%d ",n);
+            n++;
+            i--;    
+        }
+        else{
+            n++;
+        }
+    }
+    
+}

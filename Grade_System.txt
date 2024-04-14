@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main(){
+    int a,b,c,d,e,sum,avg;
+    scanf("%d %d %d %d %d",&a,&b,&c,&d,&e);
+    sum=a+b+c+d+e;
+    avg=sum/5;
+    if(avg>90 && avg<=100
+    printf("O");
+    else if(avg>70 && avg<=90)
+    printf("A");
+    else if(avg>=50 && avg<=70)
+    printf("B");
+
+    
+    
+}

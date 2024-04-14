@@ -1,0 +1,25 @@
+#include <stdio.h>
+int sum(int n){
+    int count_even,count_odd;
+    count_even=0;
+    count_odd=0;
+    for(int i=1;i<=n;i++){
+        if(i%2==0)
+        {
+            count_even+=i;
+        }
+        else{
+            count_odd+=i;
+            
+        }
+    }
+    printf("%d %d",count_even,count_odd);
+    
+}
+int main(){
+    int n;
+    int sum_numbers;
+    scanf("%d",&n);
+    sum_numbers=sum(n);
+    
+}

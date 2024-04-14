@@ -1,0 +1,18 @@
+#include <stdio.h>
+unsigned int power(int n,int p){
+    int temp;
+    temp=1;
+    for(int i=1;i<=p;i++){
+        temp*=n;
+    }
+    printf("%d ",temp);
+}
+int main(){
+    unsigned int n,i,power_three;
+    scanf("%d",&n);
+    for(i=0;i<3;i++){
+        power_three=power(n,3);
+        n++;
+        
+    }
+}

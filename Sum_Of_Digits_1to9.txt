@@ -1,0 +1,21 @@
+#include <stdio.h>
+int count(int n){
+    int rem;
+    int sum_count=0;
+    int i;
+    for(i=0;n!=0;i++){
+        rem=n%10;
+        sum_count+=rem;
+        n=n/10;
+    }
+    return sum_count;
+}
+int main(){
+    int n,sum;
+    scanf("%d",&n);
+    sum=count(n);
+while(sum>=10){
+    sum=count(sum);
+}
+printf("%d",sum);
+}

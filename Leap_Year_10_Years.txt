@@ -1,0 +1,25 @@
+#include <stdio.h>
+int leap_year(int n){
+    if((n%4==0 && n%100!=0)||n%400==0){
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+int main(){
+    int year,i,leapYear;
+    int count=0;
+    scanf("%d",&year);
+    leapYear=leap_year(year);
+    if(leapYear){
+        for(i=year;count<=10;i++){
+            if(leap_year(i)==0){
+                printf("%d ",i);
+                count++;
+            }
+        }
+    }
+    
+    
+}
