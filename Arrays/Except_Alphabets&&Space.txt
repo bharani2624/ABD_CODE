@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main(){
+    char str[100];
+    char duplicateStr[100];
+    int j;
+    j=0;
+    scanf("%[^\n]",str);
+    for(int i=0;str[i]!='\0';i++){
+        if('a'<=str[i] && 'z'>=str[i] || str[i]==' ')
+        {
+            continue;
+        }
+        else{
+            duplicateStr[j]=str[i];
+            j++;
+        }
+    }
+printf("%s",duplicateStr);
+}

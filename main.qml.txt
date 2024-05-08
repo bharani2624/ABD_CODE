@@ -1,0 +1,43 @@
+//// main.qml
+//import QtQuick 2.12
+//import QtQuick.Window 2.12
+//import QtQuick.Controls 2.212
+
+//Window {
+//    visible: true
+//    width: 640
+//    height: 480
+//    title: "Network Sender App"
+
+//    Button {
+//        text: "Send Data"
+//        anchors.centerIn: parent
+//        onClicked: networkSender.sendData()
+//    }
+//}
+import QtQuick 2.12
+import QtQuick.Window 2.12
+import QtQuick.Controls 2.12
+ Window{
+
+     visible: true
+     width: 360
+     height: 640
+     TextField{
+         id:signalSender
+         width:
+             parent.width-20
+         anchors.centerIn: parent
+         placeholderText: "ENTER";
+
+     }
+
+     Button{
+
+     text: "ABD WILL DESTROY THE WORLD"
+     anchors.bottom: parent-50
+
+
+     onClicked: ns.sendData(signalSender.text)
+     }
+ }

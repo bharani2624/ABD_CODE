@@ -1,0 +1,11 @@
+#include <stdio.h>
+int main(){
+    char str[100];
+    char character;
+    scanf("%[^\n]",str);
+    scanf(" %c",&character);
+    for(int i=0;str[i]!='\0';i++){
+     if(str[i]==' '){ str[i]=character;}
+    }
+    printf("%s",str);
+}

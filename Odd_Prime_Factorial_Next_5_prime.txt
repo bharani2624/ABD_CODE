@@ -1,0 +1,47 @@
+#include <stdio.h>
+int prime(int n){
+    if(n<2){
+        return 0;
+    }
+    for(int i=2;i<=n/2;i++){
+        if(n%i==0){
+            return 0;
+        }
+    }
+    // if(n%2==0){
+    //     return 0;
+    // }
+
+    return 1;
+}
+// unsigned long long int fact(int n){
+//     unsigned long long int factorial=1;
+//     unsigned int i;
+//     for(i=1;i<=n;i++){
+//     if(odd(i))
+//       { 
+//           printf("%d ",i);
+//           factorial=factorial*i;
+//       }
+//     }
+// return factorial;
+    
+// }
+int main(){
+   int n,prime_check_fact=0;
+    scanf("%d",&n);
+    int prime_check;
+    n++;
+    int count=5;
+while(count!=0){
+    if(prime(n)){
+        printf("%d ",n);
+        n++;
+        count--;
+    }
+    else{
+        n++;
+    }
+}
+    
+}

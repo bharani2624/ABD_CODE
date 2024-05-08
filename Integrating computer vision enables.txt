@@ -1,0 +1,1 @@
+Integrating computer vision enables real-time detection of obstacles, while IoT sensors provide accurate spatial awareness for navigation assistance. Voice-based UI ensures intuitive interaction, allowing users to navigate hands-free with simple voice commands. This holistic approach empowers visually impaired individuals with seamless and reliable real-time navigation support.

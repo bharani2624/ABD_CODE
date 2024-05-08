@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <string.h>
+void swap(char *a,char *b){
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
+}
+int p(char *str,int low,int high){
+    int pi=str[low];
+    int i=low;
+    int j=high;
+    while(i<j){
+        while(str[i]<=pi && i<=high-1){
+            i++;
+        }
+        while(str[j]>pi && j>=low+1){
+            j--;
+        }
+        if(i<j){
+            swap(&str[i],&str[j]);
+        }
+    }
+    swap(&str[low],&str[j]);
+    return j;
+}
+void qs(char *str,int low,int high)
+{
+    if(low<high){
+        int pindex=p(str,low,high);
+        qs(str,low,pindex-1);
+        qs(str,pindex+1,high);
+    }
+    
+}
+int main()
+{
+    char str[100];
+    scanf("%[^\n]",str);
+    int size;
+    size=strlen(str);
+    printf("%d ",size);
+    qs(str,0,size-1);
+    printf("%s ",str);
+}

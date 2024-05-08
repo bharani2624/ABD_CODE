@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main(){
+    int arr[]={1,2,3,4,5};
+    int arr_new[]={6,7,8,9,10};
+    int size_arr=sizeof(arr)/sizeof(arr[0]);
+    int size_arr_new=sizeof(arr_new)/sizeof(arr_new[0]);
+    int size_arr_ascending=size_arr+size_arr_new;
+    int arr_ascending[size_arr_ascending];
+    for(int i=0;i<size_arr;i++){
+        arr_ascending[i]=arr[i];
+    }
+    for(int i=0;i<size_arr_new;i++){
+        arr_ascending[i+size_arr]=arr_new[i];
+    }
+    for(int i=0;i<size_arr_ascending;i++){
+        printf("%d ",arr_ascending[i]);
+    }
+}

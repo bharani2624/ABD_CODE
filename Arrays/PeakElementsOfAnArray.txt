@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main(){
+    int arr[]={5,10,20,15};
+    int size;
+    size=sizeof(arr)/sizeof(arr[0]);
+    printf("%d ",size);
+    if(arr[0]>arr[1]){
+        printf("%d ",arr[0]);
+    }
+    if(arr[size-1]>arr[size-2]){
+        printf("%d ",arr[size-1]);
+    }
+    for(int i=1;i<size-1;i++){
+        if(arr[i]>arr[i+1] && arr[i]>arr[i-1]){
+            printf("%d ",arr[i]);
+        }
+    }
+}

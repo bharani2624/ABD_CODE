@@ -1,0 +1,20 @@
+#include <stdio.h>
+void subset(char str[],char sub[],int pos,int len){
+    int c=0;
+    while(c<len){
+        sub[c]=str[c+pos-1];
+        c++;
+    }
+    sub[len]='\0';
+}
+int main(){
+    char str[100];//GEEKSFORGEEKS
+    char sub[100];
+    int pos;
+    int len;
+    scanf(" %[^\n]",str);
+    scanf("%d",&pos);
+    scanf("%d",&len);
+    subset(str,sub,pos,len);
+    printf("%s ",sub);
+}

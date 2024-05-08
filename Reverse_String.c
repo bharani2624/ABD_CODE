@@ -4,6 +4,6 @@ int main(){
     int size,i;
     size=sizeof(str)/sizeof(str[0]);
     for(i=0;i<size;i++){
-        printf("%s",str[]);
+        printf("%s",str[i]);
     }
 }

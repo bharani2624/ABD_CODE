@@ -1,0 +1,29 @@
+#include <stdio.h>
+int main(){
+    int arr[]={1, 2, 3, 4, 5, 9, 7, 8};
+    int x=23;
+    int i=0;
+    int j=0;
+    int k=0;
+    int l=0;
+    int size=sizeof(arr)/sizeof(arr[0]);
+    int found=0;
+    if(size<4){
+        printf("It is not possible to Find the Four sum of the array");
+    }
+   else{ for(i=0;i<size-3;i++){
+        for(j=i+1;j<size-2;j++){
+            for(k=j+1;k<size-1;k++){
+                for(l=k+1;l<size;l++){
+                    if(arr[i]+arr[j]+arr[k]+arr[l]==x){
+                        found++;
+                        printf("i=%d  j=%d  k=%d  l=%d  \n",i,j,k,l);
+                        printf("%d %d %d %d \n",arr[i],arr[j],arr[k],arr[l]);
+                        
+            }
+          }
+        }
+      }
+    }
+   }
+}

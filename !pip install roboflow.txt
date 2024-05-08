@@ -1,0 +1,12 @@
+!pip install roboflow
+
+from roboflow import Roboflow
+rf = Roboflow(api_key="us66DmVAMoINioZ36TX7")
+project = rf.workspace("bharani-dharaun-a-7n1ty").project("airdopes-141")
+dataset = project.version(1).download("tensorflow")
+!pip install roboflow
+
+from roboflow import Roboflow
+rf = Roboflow(api_key="us66DmVAMoINioZ36TX7")
+project = rf.workspace("bharani-dharaun-a-7n1ty").project("airdopes-141")
+dataset = project.version(1).download("yolov5")

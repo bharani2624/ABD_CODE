@@ -1,0 +1,22 @@
+// networksender.h
+#ifndef NETWORKSENDER_H
+#define NETWORKSENDER_H
+
+#include <QObject>
+#include <QTcpSocket>
+
+class NetworkSender : public QObject
+{
+    Q_OBJECT
+public:
+    explicit NetworkSender(QObject *parent);
+
+public slots:
+    void sendData(const QString &data);
+
+private:
+    QTcpSocket *socket;
+};
+
+#endif // NETWORKSENDER_H
+

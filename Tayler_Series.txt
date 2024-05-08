@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+int Series(double x,int n){
+    double term=1,sum=1,fct,m,y=2;
+    for(int i=1;i<n;i++){
+        fct=1;
+        for(double j=1;j<=y;j++){
+            fct*=j;
+        }
+        term=term*(-1);
+        m=term*pow(x,y)/fct;
+        sum+=m;
+        y+=2;
+    }
+    printf("%.4f",sum);
+}
+int main(){
+    double x=9;
+    int n=10;
+    double t;
+    t=Series(x,n);
+}

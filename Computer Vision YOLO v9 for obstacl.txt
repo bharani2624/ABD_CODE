@@ -1,0 +1,5 @@
+Computer Vision: YOLO v9 for obstacle detection, OpenCV for image processing.
+IoT Components: Raspberry Pi, HC-SR04 sensors, camera module.
+Voice-based UI: CMU Sphinx for speech recognition, TTS technology.
+Mapping and Navigation: Folium for offline maps, GIS tools.
+Software Development: Python, TensorFlow/PyTorch, Flask/Django.

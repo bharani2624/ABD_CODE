@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main(){
+    int n,count,base,term=0,sum=0;
+    scanf("%d %d",&n,&count);
+    base=n;
+    for(int i=0;i<count;i++){
+        term=term*10+base;
+        
+        if(i==count-1){
+            printf("%d",term);
+        }
+        else
+        {printf("%d+",term);}
+        
+        sum+=term;
+    }
+}

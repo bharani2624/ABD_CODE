@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+void search(char str[],char sw[]){
+    int i=0,j=0;
+    char cw[100];
+    int count=0;
+    int found=0;
+    while(str[i]!='\0'){
+        if(str[i]!=' '){
+            cw[j++]=str[i];
+        }
+        else{
+            cw[j]='\0';
+         if(strlen(sw)==strlen(cw) && strcmp(sw,cw)==0){
+             found=1;
+             count++;
+         }
+            j=0;
+        }
+    i++;
+        
+    }
+    cw[j]='\0';
+if(strlen(sw)==strlen(cw) && strcmp(sw,cw)==0){
+             found=1;
+             count++;
+         }
+    printf("%d ",count);
+}
+
+int main(){
+    char str[100];
+    char sw[100];
+    scanf(" %[^\n]",str);
+    scanf(" %[^\n]",sw);
+    search(str,sw);
+}

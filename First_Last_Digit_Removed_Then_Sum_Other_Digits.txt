@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+int count(int n){
+    int rem,count;
+    rem=0;
+    count=0;
+    for(int i=0;n!=0;i++){
+        rem=n%10;
+        count++;
+        n=n/10;;
+    }
+    
+    return count;
+}
+int main(){
+    int n,i;
+    scanf("%d",&n);
+    int swapped_digit;
+    swapped_digit=0;
+    swapped_digit=n%(int)(pow(10,count(n)-1));
+    int sum,sum_digits;
+    sum_digits=0;
+    sum=(swapped_digit)/10;
+    for(int i=0;sum!=0;i++){
+        int rem;
+        rem=sum%10;
+        sum_digits+=rem;
+        sum=sum/10;
+    }
+    printf("%d ",sum_digits);
+
+}

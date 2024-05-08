@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    int n;
+    double a=1.0/2.0;
+    double r=1.0/2.0;
+    scanf("%d",&n);
+    double result=a*((1-pow(r,n))/(1-r));
+    printf("%lf",result);
+}

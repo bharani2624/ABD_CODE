@@ -1,0 +1,43 @@
+import React, { useState } from 'react';
+import name from '../Assets/name.png';
+import email from '../Assets/email.png';
+import password from '../Assets/password.png';
+import './Login_Signup.css';
+
+const Login_Signup = () => {
+    const [isSignedIn, setIsSignedIn] = useState(false);
+
+    const handleSignIn = () => {
+        setIsSignedIn(true);
+    };
+	
+    return (
+        <div className="container">
+            <div className="header">
+                <div className="Signup" style={{ backgroundColor: isSignedIn ? 'grey' : 'blue' }}>SignUp</div>
+                <div className="underline"></div>
+            </div>
+            <div className="inputs">s
+                <div className="input" style={{ pointerEvents: isSignedIn ? 'none' : 'auto' }}>
+                    <img src={name} alt="" height={15}/>
+                    <input type="text" placeholder='Name' disabled={isSignedIn} />
+                </div>
+                <div className="input">
+                    <img src={email} alt="" height={15}/>
+                    <input type="email" placeholder='Email'/>
+                </div>
+                <div className="input">
+                    <img src={password} alt="" height={15}/>
+                    <input type="password" placeholder='Password'/>
+                </div>
+                <div className="footer">
+                    <div className="Submit"><span>SignUp</span></div>
+                    <div className="signIn" onClick={handleSignIn}><span>SignIn</span></div>
+                </div>
+                <div className="fp">Forgot Password <span><u>Click Here</u></span></div>
+            </div>
+        </div>
+    );
+};
+
+export default Login_Signup;

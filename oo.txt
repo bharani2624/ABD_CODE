@@ -1,0 +1,161 @@
+import random
+import pyttsx3
+import speech_recognition as sr
+import tkinter as tk
+
+def text_to_speech(text, language='en', voice_gender='f'):
+    engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+
+    # Select voice based on language and gender
+    if language == 'ta':
+        if voice_gender == 'm':
+            voice_id = 'ta+m1'  # Replace with the desired Tamil male voice ID
+        else:
+            voice_id = 'ta+f1'  # Replace with the desired Tamil female voice ID
+    elif language == 'hi':
+        if voice_gender == 'm':
+            voice_id = 'hi+m1'  # Replace with the desired Hindi male voice ID
+        else:
+            voice_id = 'hi+f1'  # Replace with the desired Hindi female voice ID
+    else:
+        if voice_gender == 'm':
+            voice_id = 'en+m3'  # Replace with the desired English male voice ID
+        else:
+            voice_id = 'en+f3'  # Replace with the desired English female voice ID
+
+    # Set the selected voice
+    selected_voice = None
+    for voice in voices:
+        if voice_id in voice.id:
+            selected_voice = voice
+            break
+
+    if selected_voice:
+        engine.setProperty('voice', selected_voice.id)
+    else:
+        print(f"Voice not found for voice ID: {voice_id}. Using the default voice.")
+
+    engine.setProperty('rate', 150)  # You can adjust the speech rate here
+    engine.say(text)
+    engine.runAndWait()
+
+
+def process_query():
+    continue_playing = True
+    language_choice = ''
+    voice_gender = ''
+
+    input_text.delete("1.0", tk.END)
+    output_text.delete("1.0", tk.END)
+
+    while continue_playing:
+        r = sr.Recognizer()
+
+        if not language_choice:
+            # Language selection
+            text_to_speech("Select a language (English, Tamil, Hindi):")
+            with sr.Microphone() as source:
+                audio = r.listen(source)
+
+            try:
+                language_choice = r.recognize_google(audio)
+                input_text.insert(tk.END, f"Language choice: {language_choice}\n")
+
+                if language_choice.lower() not in ["en", "ta", "hi"]:
+                    input_text.insert(tk.END, "Invalid language choice. Using English as the default language.\n")
+                    language_choice = 'en'
+            except sr.UnknownValueError:
+                input_text.insert(tk.END, "Sorry, I didn't catch that. Please try again.\n")
+                continue
+
+        if not voice_gender:
+            # Voice gender selection
+            text_to_speech("Select a voice gender (male or female):")
+            with sr.Microphone() as source:
+                audio = r.listen(source)
+
+            try:
+                voice_gender = r.recognize_google(audio)
+                input_text.insert(tk.END, f"Voice gender: {voice_gender}\n")
+            except sr.UnknownValueError:
+                input_text.insert(tk.END, "Sorry, I didn't catch that. Please try again.\n")
+                continue
+
+        text_to_speech("Now you can ask queries.")
+
+        with sr.Microphone() as source:
+            input_text.insert(tk.END, "Now you can ask queries:\n")
+            audio = r.listen(source)
+
+        try:
+            question = r.recognize_google(audio)
+            input_text.insert(tk.END, f"Question: {question}\n")
+        except sr.UnknownValueError:
+            input_text.insert(tk.END, "Sorry, I didn't catch that. Please try again.\n")
+            continue
+
+        if question.lower() == "exit":
+            break
+        else:
+            if "college fees" in question.lower():
+                response = "The college fees for Bannari Amman Institute of Technology depend on the course the student has selected."
+            elif "campus review" in question.lower():
+                response = "Bannari Amman Institute of Technology has a sprawling campus with state-of-the-art facilities. The campus provides a conducive environment for learning and offers various amenities to students."
+            elif "testimonials" in question.lower():
+                response = "Bannari Amman Institute of Technology has received positive testimonials from many students and alumni. They appreciate the quality of education, supportive faculty, and the opportunities provided for overall development."
+            elif "ratings" in question.lower():
+                response = "BIT has been rated highly by various ranking agencies and students. It is known for its academic excellence, infrastructure, and placement opportunities."
+            elif "achievements" in question.lower():
+                response = "Bannari Amman Institute of Technology has achieved several accolades in the field of technical education. They have excelled in areas like research, innovation, and industry collaborations."
+            elif "nirf ranking" in question.lower():
+                response = "As of my knowledge cutoff in September 2021, Bannari Amman Institute of Technology was ranked among the top engineering institutes in India by the National Institutional Ranking Framework (NIRF). For the latest ranking information, I recommend checking the NIRF official website."
+            elif "infrastructure" in question.lower():
+                response = "BIT boasts a modern infrastructure with well-equipped laboratories, libraries, sports facilities, hostels, and more. The campus provides a comfortable and conducive environment for learning and extracurricular activities."
+            elif "location" in question.lower():
+                response = "Bannari Amman Institute of Technology is located in Sathyamangalam, Erode district, Tamil Nadu, India. The campus is situated in a serene and scenic environment, offering a peaceful atmosphere for students."
+            else:
+                response = "I'm sorry, I don't have the ability to answer that question yet."
+
+            output_text.insert(tk.END, response + "\n")
+            text_to_speech(response, language_choice, voice_gender)
+
+        while True:
+            text_to_speech("Do you have any other queries? Say 'yes' or 'no'.")
+            with sr.Microphone() as source:
+                audio = r.listen(source)
+
+            try:
+                next_question = r.recognize_google(audio)
+                input_text.insert(tk.END, f"Next question: {next_question}\n")
+
+                if next_question.lower() == "yes":
+                    break
+                elif next_question.lower() == "no":
+                    continue_playing = False
+                    break
+                else:
+                    text_to_speech("Invalid input. Please say 'yes' or 'no'.")
+            except sr.UnknownValueError:
+                input_text.insert(tk.END, "Sorry, I didn't catch that. Please try again.\n")
+                continue
+
+    input_text.insert(tk.END, "Thank you for using the query system. Goodbye!\n")
+
+
+# Initialize Tkinter
+root = tk.Tk()
+root.title("Query System")
+
+# Input and output text widgets
+input_text = tk.Text(root, height=10, width=50)
+input_text.pack()
+
+output_text = tk.Text(root, height=10, width=50)
+output_text.pack()
+
+# Start button
+query_button = tk.Button(root, text="Start Query System", command=process_query)
+query_button.pack()
+
+root.mainloop()
